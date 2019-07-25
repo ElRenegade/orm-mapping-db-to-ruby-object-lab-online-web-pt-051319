@@ -36,16 +36,15 @@ class Student
    end.first
   end
 
-  def self.count_all_students_in_grade_9
+  def self.ll_students_in_grade_9
     sql = <<-SQL
       SELECT *
       FROM students
       WHERE students.grade = 9
     SQL
-    ay = DB[:conn].execute(sql).collect do |row|
+      DB[:conn].execute(sql).collect do |row|
       self.new_from_db(row)
     end
-    ay
   end
 
   def self.students_below_12th_grade
